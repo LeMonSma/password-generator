@@ -47,3 +47,95 @@ function generatePassword() {
         return passwordUpper + passwordChar + passwordNumber + passwordLower;
 
         // code will loop this base code for every condition only thing that changes are the answers to the user prompts and the value of i to account for how many items are used from the arrays
+
+    } else if (passwordCriteriaOne === "no" && passwordCriteriaTwo === "no" && passwordCriteriaThree === "no") {
+        function repeatLowercase() {
+            let outPut = ""
+            for (let i = 0; passwordLength > i; i++) {
+                let passwordLower = lowercaseArray[Math.floor(Math.random() * lowercaseArray.length)];
+                outPut += passwordLower
+            }
+            return outPut;
+        }
+        let passwordLower = repeatLowercase()
+
+        return passwordLower
+
+    } else if (passwordCriteriaOne === "yes" && passwordCriteriaTwo === "no" && passwordCriteriaThree === "no") {
+        function repeatLowercase() {
+            let outPut = ""
+            for (let i = 1; passwordLength > i; i++) {
+                let passwordLower = lowercaseArray[Math.floor(Math.random() * lowercaseArray.length)];
+                outPut += passwordLower
+            }
+            return outPut;
+        }
+
+        let passwordLower = repeatLowercase()
+
+        return passwordChar + passwordLower
+
+    } else if
+
+    (passwordCriteriaOne === "yes" && passwordCriteriaTwo === "yes" && passwordCriteriaThree === "no") {
+        function repeatLowercase() {
+            let outPut = ""
+            for (let i = 2; passwordLength > i; i++) {
+                let passwordLower = lowercaseArray[Math.floor(Math.random() * lowercaseArray.length)];
+                outPut += passwordLower
+            }
+            return outPut;
+        }
+
+        let passwordLower = repeatLowercase()
+
+        return passwordChar + passwordNumber + passwordLower
+
+    } else if
+
+    (passwordCriteriaOne === "no" && passwordCriteriaTwo === "yes" && passwordCriteriaThree === "no") {
+        function repeatLowercase() {
+            let outPut = ""
+            for (let i = 1; passwordLength > i; i++) {
+                let passwordLower = lowercaseArray[Math.floor(Math.random() * lowercaseArray.length)];
+                outPut += passwordLower
+            }
+            return outPut;
+        }
+
+        let passwordLower = repeatLowercase()
+
+        return passwordNumber + passwordLower
+    } else if (passwordCriteriaOne === "no" && passwordCriteriaTwo === "yes" && passwordCriteriaThree === "yes") {
+        function repeatLowercase() {
+            let outPut = ""
+            for (let i = 2; passwordLength > i; i++) {
+                let passwordLower = lowercaseArray[Math.floor(Math.random() * lowercaseArray.length)];
+                outPut += passwordLower
+            }
+            return outPut;
+        }
+
+        let passwordLower = repeatLowercase()
+
+        return passwordUpper + passwordNumber + passwordLower
+    }
+}
+
+
+
+
+// Get references to the #generate element
+let generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+    let password = generatePassword();
+    let passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+}
+
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
